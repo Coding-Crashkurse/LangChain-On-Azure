@@ -1,0 +1,6 @@
+azure_storage
+langchain
+openai
+python-dotenv
+streamlit
+streamlit_chat
