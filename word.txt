@@ -1,3 +1,10 @@
 az group create --name MeineRessourcengruppe --location westeurope
 az storage account create --name mystoragemyname123 --resource-group MeineRessourcengruppe --location westeurope --sku Standard_LRS
 az storage container create --name mycontainer --account-name mystoragemyname123
+
+
+# Registry Login
+
+docker login superduberregistry.azurecr.io --username superduberregistry --password IoL9FTo2oyPJG8sAXJhDZv5M/uPtw+25cUZlTvLr9L+ACRAwBMV4
+docker build -t superduberregistry.azurecr.io/app:latest .
+docker push superduberregistry.azurecr.io/app:latest

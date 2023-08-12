@@ -1,6 +1,5 @@
 import streamlit as st
 from streamlit_chat import message
-from dotenv import load_dotenv
 from langchain.retrievers import AzureCognitiveSearchRetriever
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
@@ -11,7 +10,6 @@ memory = ConversationBufferMemory(
     memory_key="chat_history", return_messages=True, output_key="answer"
 )
 
-load_dotenv()
 
 def load_chain():
     prompt_template = """You are a helpful assistant for questions about the fictive animal huninchen.
@@ -34,6 +32,7 @@ def load_chain():
     )
     return chain
 
+
 chain = load_chain()
 
 st.set_page_config(page_title="LangChain Demo", page_icon=":robot:")
@@ -45,9 +44,11 @@ if "generated" not in st.session_state:
 if "past" not in st.session_state:
     st.session_state["past"] = []
 
+
 def get_text():
     input_text = st.text_input("You: ", "", key="input")
     return input_text
+
 
 user_input = get_text()
 
